@@ -5,3 +5,20 @@ machine:
 test:
   override:
     - pget -v
+
+    - |
+      echo "use wget"
+      start_time=`date +%s`
+      wget https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip
+      end_time=`date +%s`
+      time=$((end_time - start_time))
+      echo "wget takes $time sec"
+
+    - |
+      echo "use pget"
+      start_time=`date +%s`
+      pget https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip
+      end_time=`date +%s`
+      time=$((end_time - start_time))
+      echo "pget takes $time sec"
+
