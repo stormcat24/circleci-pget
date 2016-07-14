@@ -1,0 +1,7 @@
+machine:
+  post:
+    - go get github.com/Code-Hex/pget/cmd/pget
+
+test:
+  override:
+    - pget -v
